@@ -46,9 +46,9 @@ export const Navbar = () => {
                 <a onClick={() => scrollTo(0)}>Home</a>
                 <a onClick={() => scrollTo(1)}>Coding</a>
                 <a onClick={() => scrollTo(2)}>Skills</a>
-                <a onClick={() => scrollTo(3.2)}>Projects</a>
-                <a onClick={() => scrollTo(5.5)}>Achievements</a>
-                <a onClick={() => scrollTo(7.5)}>Contact</a>
+                <a onClick={() => scrollTo(3.5)}>Projects</a>
+                <a onClick={() => scrollTo(6)}>Achievements</a>
+                <a onClick={() => scrollTo(8.5)}>Contact</a>
             </div>
         </nav>
     )

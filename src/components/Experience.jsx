@@ -47,7 +47,7 @@ export default function Experience({ setExpandedProject }) {
             {/* Background Particles */}
             <Sparkles count={2000} scale={[40, 40, 40]} size={4} speed={0.2} opacity={0.6} color="#88ccff" />
 
-            <ScrollControls pages={8} damping={0.1} style={{ scrollbarWidth: 'none' }}>
+            <ScrollControls pages={9.5} damping={0.1} style={{ scrollbarWidth: 'none' }}>
                 <ScrollHandler />
 
                 {/* 3D Content Layer */}
