@@ -47,7 +47,7 @@ export default function Experience({ setExpandedProject }) {
             {/* Background Particles */}
             <Sparkles count={2000} scale={[40, 40, 40]} size={4} speed={0.2} opacity={0.6} color="#88ccff" />
 
-            <ScrollControls pages={9.5} damping={0.1} style={{ scrollbarWidth: 'none' }}>
+            <ScrollControls pages={12} damping={0.1} style={{ scrollbarWidth: 'none' }}>
                 <ScrollHandler />
 
                 {/* 3D Content Layer */}
@@ -57,29 +57,29 @@ export default function Experience({ setExpandedProject }) {
                         <Section type="hero" scale={1.5} position={[0, -1, 0]} />
                     </Float>
 
-                    {/* Skills Section - 1 page down */}
-                    <group position={[0, -viewport.height, 0]}>
+                    {/* Skills Section - 1.5 pages down (giving space for coding arena) */}
+                    <group position={[0, -viewport.height * 1.5, 0]}>
                         <Float floatIntensity={1} speed={2} rotationIntensity={0.5}>
                             <Section type="skills" scale={1.2} />
                         </Float>
                     </group>
 
-                    {/* Projects Section - 2 pages down */}
-                    <group position={[0, -viewport.height * 2, 0]}>
+                    {/* Projects Section - 3 pages down (giving space for skills) */}
+                    <group position={[0, -viewport.height * 3, 0]}>
                         <Float floatIntensity={1} speed={1.5} rotationIntensity={0.5}>
                             <Section type="projects" scale={1.2} />
                         </Float>
                     </group>
 
-                    {/* Achievements Section - 3 pages down */}
-                    <group position={[0, -viewport.height * 3, 0]}>
+                    {/* Achievements Section - 7 pages down (giving HUGE space for projects) */}
+                    <group position={[0, -viewport.height * 7, 0]}>
                         <Float floatIntensity={1} speed={2} rotationIntensity={0.5}>
                             <Section type="achievements" scale={1.2} />
                         </Float>
                     </group>
 
-                    {/* Contact Section - 4 pages down */}
-                    <group position={[0, -viewport.height * 4, 0]}>
+                    {/* Contact Section - 10 pages down */}
+                    <group position={[0, -viewport.height * 10, 0]}>
                         <Float floatIntensity={0.5} speed={1} rotationIntensity={0.5}>
                             <Section type="contact" scale={1.2} />
                         </Float>

@@ -45,10 +45,10 @@ export const Navbar = () => {
             <div className="nav-links">
                 <a onClick={() => scrollTo(0)}>Home</a>
                 <a onClick={() => scrollTo(1)}>Coding</a>
-                <a onClick={() => scrollTo(2)}>Skills</a>
-                <a onClick={() => scrollTo(3.5)}>Projects</a>
-                <a onClick={() => scrollTo(6)}>Achievements</a>
-                <a onClick={() => scrollTo(8.5)}>Contact</a>
+                <a onClick={() => scrollTo(1.5)}>Skills</a>
+                <a onClick={() => scrollTo(3)}>Projects</a>
+                <a onClick={() => scrollTo(7)}>Achievements</a>
+                <a onClick={() => scrollTo(10)}>Contact</a>
             </div>
         </nav>
     )
