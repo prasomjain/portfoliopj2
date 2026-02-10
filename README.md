@@ -2,8 +2,6 @@
 
 A highly interactive, immersive 3D portfolio website built with React, Three.js, and React Three Fiber. This project showcases my skills, experience, and projects in a unique, gamified environment.
 
-![Project Preview](./public/preview.png)
-
 ## 🚀 Features
 
 -   **Immersive 3D Experience**: Navigate through a 3D world that represents my professional journey.
@@ -79,11 +77,5 @@ Contributions, issues, and feature requests are welcome!
 3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4.  Push to the Branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
 
 **Prasom Jain** - [GitHub](https://github.com/prasomjain)
