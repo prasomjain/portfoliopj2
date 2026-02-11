@@ -1,6 +1,6 @@
 import { userData } from '../data/user'
 import './Overlay.css'
-import { FaGithub, FaLinkedin, FaEnvelope, FaTrophy, FaCode, FaRocket, FaUserAstronaut, FaTimes, FaExternalLinkAlt } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope, FaTrophy, FaCode, FaRocket, FaUserAstronaut, FaTimes, FaExternalLinkAlt, FaHome, FaLaptopCode, FaTools, FaProjectDiagram, FaAward, FaPaperPlane } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
 import profileImg from '../assets/profile.jpg'
 
@@ -35,20 +35,47 @@ export const ProjectModal = ({ projectId, onClose }) => {
 }
 
 export const Navbar = () => {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
     const scrollTo = (pageIndex) => {
         window.dispatchEvent(new CustomEvent('portfolio-scroll', { detail: pageIndex }))
+        setMobileMenuOpen(false) // Close menu after navigation on mobile
     }
 
     return (
         <nav className="navbar">
             <div className="nav-logo" onClick={() => scrollTo(0)} style={{ cursor: 'pointer' }}>Prasom Jain</div>
-            <div className="nav-links">
-                <a onClick={() => scrollTo(0)}>Home</a>
-                <a onClick={() => scrollTo(1)}>Coding</a>
-                <a onClick={() => scrollTo(1.5)}>Skills</a>
-                <a onClick={() => scrollTo(3)}>Projects</a>
-                <a onClick={() => scrollTo(7)}>Achievements</a>
-                <a onClick={() => scrollTo(10)}>Contact</a>
+            <button
+                className="mobile-menu-toggle"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+                ☰
+            </button>
+            <div className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
+                <a onClick={() => scrollTo(0)}>
+                    <FaHome className="nav-icon" />
+                    <span>Home</span>
+                </a>
+                <a onClick={() => scrollTo(1)}>
+                    <FaLaptopCode className="nav-icon" />
+                    <span>Arena</span>
+                </a>
+                <a onClick={() => scrollTo(1.5)}>
+                    <FaTools className="nav-icon" />
+                    <span>Skills</span>
+                </a>
+                <a onClick={() => scrollTo(3)}>
+                    <FaProjectDiagram className="nav-icon" />
+                    <span>Work</span>
+                </a>
+                <a onClick={() => scrollTo(7)}>
+                    <FaAward className="nav-icon" />
+                    <span>Awards</span>
+                </a>
+                <a onClick={() => scrollTo(10)}>
+                    <FaPaperPlane className="nav-icon" />
+                    <span>Contact</span>
+                </a>
             </div>
         </nav>
     )
