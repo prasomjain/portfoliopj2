@@ -1,7 +1,7 @@
 export const userData = {
     personalInfo: {
         name: "Prasom Jain",
-        title: "Full Stack Developer & AI Engineer",
+        title: "Engineer × Product Builder",
         bio: "I believe meaningful work begins with intent and ends with impact. A curious learner and thoughtful creator, I explore ideas deeply and build technology with purpose aiming to leave impressions that endure beyond the first encounter.",
         contact: {
             email: "prasomwork@gmail.com",
