@@ -1,0 +1,162 @@
+/* ==========================================================================
+   TOKENS — Three-tier token architecture (Global → Alias → Component)
+   Inspired by Dream11's "Turf" design system structure.
+   Rule: components never reference global tokens directly.
+   ========================================================================== */
+
+:root {
+    /* ------------------------------------------------------------------
+       TIER 1 — GLOBAL TOKENS (primitive, context-agnostic)
+       ------------------------------------------------------------------ */
+
+    /* Crimson ramp (brand energy) */
+    --g-crimson-300: #ff7a8a;
+    --g-crimson-400: #ff4d64;
+    --g-crimson-500: #ff2d55;
+    --g-crimson-600: #d91e42;
+    --g-crimson-700: #a51230;
+
+    /* Gold ramp (trophy / rank highlights) */
+    --g-gold-300: #ffd166;
+    --g-gold-400: #ffc233;
+    --g-gold-500: #f5a800;
+
+    /* Success */
+    --g-green-500: #22c55e;
+
+    /* Slate ramp (arena dark neutrals) */
+    --g-slate-1000: #06080c;
+    --g-slate-950: #0b0e14;
+    --g-slate-900: #10141d;
+    --g-slate-850: #141926;
+    --g-slate-800: #1a2130;
+    --g-slate-700: #232c3f;
+    --g-slate-600: #32405c;
+    --g-slate-400: #8b93a5;
+    --g-slate-200: #c7cdd9;
+    --g-slate-50: #eef1f6;
+    --g-white: #ffffff;
+
+    /* Typography primitives */
+    --g-font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    --g-font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+    --g-text-xs: 0.75rem;
+    --g-text-sm: 0.875rem;
+    --g-text-md: 1rem;
+    --g-text-lg: 1.25rem;
+    --g-text-xl: 1.75rem;
+    --g-text-2xl: 2.5rem;
+    --g-text-3xl: 3.5rem;
+    --g-text-4xl: 4.75rem;
+
+    /* Spacing primitives (4px scale) */
+    --g-space-1: 0.25rem;
+    --g-space-2: 0.5rem;
+    --g-space-3: 0.75rem;
+    --g-space-4: 1rem;
+    --g-space-5: 1.5rem;
+    --g-space-6: 2rem;
+    --g-space-7: 3rem;
+    --g-space-8: 4rem;
+    --g-space-9: 6rem;
+
+    /* Radius primitives */
+    --g-radius-sm: 6px;
+    --g-radius-md: 12px;
+    --g-radius-lg: 18px;
+    --g-radius-pill: 999px;
+
+    /* Motion primitives */
+    --g-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --g-duration-fast: 160ms;
+    --g-duration-base: 300ms;
+    --g-duration-slow: 600ms;
+
+    /* ------------------------------------------------------------------
+       TIER 2 — ALIAS TOKENS (semantic meaning)
+       ------------------------------------------------------------------ */
+
+    --color-bg-base: var(--g-slate-950);
+    --color-bg-sunken: var(--g-slate-1000);
+    --color-surface: var(--g-slate-900);
+    --color-surface-raised: var(--g-slate-850);
+    --color-surface-hover: var(--g-slate-800);
+
+    --color-border: rgba(139, 147, 165, 0.16);
+    --color-border-strong: rgba(139, 147, 165, 0.32);
+
+    --color-text-primary: var(--g-slate-50);
+    --color-text-secondary: var(--g-slate-200);
+    --color-text-muted: var(--g-slate-400);
+    --color-text-inverse: var(--g-slate-1000);
+
+    --color-accent: var(--g-crimson-500);
+    --color-accent-hover: var(--g-crimson-400);
+    --color-accent-strong: var(--g-crimson-600);
+    --color-accent-soft: rgba(255, 45, 85, 0.12);
+    --color-accent-border: rgba(255, 45, 85, 0.35);
+
+    --color-highlight: var(--g-gold-400);
+    --color-highlight-soft: rgba(255, 194, 51, 0.14);
+    --color-positive: var(--g-green-500);
+
+    --gradient-accent: linear-gradient(135deg, var(--g-crimson-500), var(--g-crimson-700));
+    --gradient-floodlight: radial-gradient(ellipse at top, rgba(255, 45, 85, 0.14), transparent 60%);
+    --gradient-surface: linear-gradient(180deg, var(--g-slate-850), var(--g-slate-900));
+
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+    --shadow-accent: 0 8px 32px rgba(255, 45, 85, 0.25);
+
+    --font-display: var(--g-font-display);
+    --font-body: var(--g-font-body);
+
+    /* ------------------------------------------------------------------
+       TIER 3 — COMPONENT TOKENS (isolated component state)
+       ------------------------------------------------------------------ */
+
+    /* Navbar */
+    --navbar-bg: rgba(11, 14, 20, 0.82);
+    --navbar-border: var(--color-border);
+    --navbar-link-color: var(--color-text-muted);
+    --navbar-link-active: var(--color-text-primary);
+    --navbar-indicator: var(--color-accent);
+
+    /* Buttons */
+    --button-primary-bg: var(--gradient-accent);
+    --button-primary-color: var(--g-white);
+    --button-primary-shadow: var(--shadow-accent);
+    --button-secondary-border: var(--color-border-strong);
+    --button-secondary-color: var(--color-text-secondary);
+
+    /* Cards */
+    --card-bg: var(--gradient-surface);
+    --card-border: var(--color-border);
+    --card-border-hover: var(--color-accent-border);
+    --card-radius: var(--g-radius-lg);
+
+    /* Tabs (horizontal classification) */
+    --tab-bg: var(--color-surface);
+    --tab-color: var(--color-text-muted);
+    --tab-active-bg: var(--gradient-accent);
+    --tab-active-color: var(--g-white);
+
+    /* Pills / chips */
+    --pill-bg: rgba(139, 147, 165, 0.1);
+    --pill-border: var(--color-border);
+    --pill-color: var(--color-text-secondary);
+
+    /* Inputs */
+    --input-bg: var(--color-bg-sunken);
+    --input-border: var(--color-border-strong);
+    --input-border-focus: var(--color-accent);
+    --input-color: var(--color-text-primary);
+
+    /* Stepper rail */
+    --stepper-dot: var(--color-border-strong);
+    --stepper-dot-active: var(--color-accent);
+
+    /* Modal */
+    --modal-bg: var(--g-slate-900);
+    --modal-overlay: rgba(6, 8, 12, 0.85);
+}

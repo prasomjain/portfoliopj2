@@ -1,0 +1,150 @@
+@import './styles/tokens.css';
+
+/* ==========================================================================
+   BASE — native scroll, arena backdrop, resets
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: dark;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-base);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  margin: 0;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--g-white);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-sunken);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--g-slate-700);
+  border-radius: var(--g-radius-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--g-slate-600);
+}
+
+/* ==========================================================================
+   STADIUM BACKDROP — fixed layered gradients + turf stripes (pure CSS,
+   replaces the previous WebGL scene for performance)
+   ========================================================================== */
+
+.stadium-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--color-bg-base);
+  background-image:
+    /* floodlight glows */
+    radial-gradient(ellipse 70% 45% at 15% -5%, rgba(255, 45, 85, 0.13), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(50, 64, 92, 0.35), transparent 65%),
+    radial-gradient(ellipse 80% 50% at 50% 110%, rgba(255, 45, 85, 0.07), transparent 60%),
+    /* mowed-turf vertical stripes */
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.014) 0px,
+      rgba(255, 255, 255, 0.014) 90px,
+      transparent 90px,
+      transparent 180px
+    );
+}
+
+.stadium-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   REVEAL — IntersectionObserver-driven entrance
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--g-duration-slow) var(--g-ease-out),
+    transform var(--g-duration-slow) var(--g-ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
