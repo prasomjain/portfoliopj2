@@ -1,81 +1,47 @@
-# 3D Developer Portfolio
+# Prasom Jain — Portfolio
 
-A highly interactive, immersive 3D portfolio website built with React, Three.js, and React Three Fiber. This project showcases my skills, experience, and projects in a unique, gamified environment.
+Portfolio website with a design system inspired by Dream11's design principles: a three-tier token architecture, high-energy condensed typography, single-accent dark theme, and performance-first engineering.
 
-## 🚀 Features
+**Live:** [portfoliopj4.vercel.app](https://portfoliopj4.vercel.app/)
 
--   **Immersive 3D Experience**: Navigate through a 3D world that represents my professional journey.
--   **Smooth Scrolling**: Custom-built smooth scroll system synchronized with 3D camera movements.
--   **Interactive Elements**:
-    -   **Coding Arena**: Dynamic cards displaying real-time stats from LeetCode, Codeforces, and CodeChef.
-    -   **Project Showcase**: Filterable project gallery with 3D hover effects and detailed modals.
-    -   **Smart Navigation**: A fixed navbar that smoothly scrolls to specific sections within the 3D environment.
--   **Responsive Design**: Optimized for performance and usability across devices.
--   **Futuristic Aesthetic**: Glassmorphism, neon glows, and particle effects for a modern look.
+## Design System
 
-## 🛠️ Tech Stack
+- **Three-tier tokens** (`src/styles/tokens.css`): global primitives → semantic aliases → component tokens. Retheme the whole site from one file.
+- **Matchday aesthetics**: Barlow Condensed display type, electric crimson (#FF2D55) on dark slate, CSS-only stadium backdrop (floodlight gradients, turf stripes, grain).
+- **Sports-app UI patterns**: player-card hero with scoreboard stat strip, match-card project listings, leaderboard-style awards, stepper navigation rail, scroll-progress meter.
+- **Performance-first**: no 3D/animation libraries — IntersectionObserver reveals, rAF count-ups, CSS effects, all gated behind `prefers-reduced-motion`. ~74 KB gzipped JS.
 
--   **Frontend Framework**: [React 19](https://react.dev/)
--   **Build Tool**: [Vite](https://vitejs.dev/)
--   **3D Graphics**:
-    -   [Three.js](https://threejs.org/)
-    -   [React Three Fiber](https://docs.pmnd.rs/react-three-fiber)
-    -   [@react-three/drei](https://github.com/pmndrs/drei) (Helpers & Abstractions)
--   **Animations**: [Framer Motion](https://www.framer.com/motion/)
--   **Styling**: Vanilla CSS with CSS Modules approach for the Overlay.
--   **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
+## Tech Stack
 
-## 📦 Installation
+- [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
+- Vanilla CSS with design tokens (no CSS framework)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
-Clone the repository and install dependencies to run the project locally.
+## Development
 
 ```bash
-# Clone the repository
-git clone https://github.com/prasomjain/portfolio.git
-
-# Navigate to the project directory
-cd portfolio/web
-
-# Install dependencies
 npm install
+npm run dev      # http://localhost:5173
+npm run build    # production build
+npm run lint
 ```
 
-## 🚀 Usage
-
-Start the development server:
-
-```bash
-npm run dev
-```
-
-Build for production:
-
-```bash
-npm run build
-```
-
-## 📂 Project Structure
+## Project Structure
 
 ```
-web/
-├── public/          # Static assets
+├── public/              # Static assets
 ├── src/
-│   ├── assets/      # Images and media
-│   ├── components/  # React components (Experience, Overlay, Section)
-│   ├── data/        # Static data (user.js)
-│   ├── App.jsx      # Main application component
-│   └── main.jsx     # Entry point
-└── ...config files  # Vite, ESLint, etc.
+│   ├── assets/          # Images
+│   ├── components/      # Overlay.jsx (all sections), Overlay.css
+│   ├── data/user.js     # All content — edit this to update the site
+│   ├── styles/tokens.css # Design token system
+│   ├── App.jsx
+│   └── main.jsx
+└── index.html
 ```
 
-## 🤝 Contributing
+All content (projects, experience, skills, links) lives in `src/data/user.js`.
 
-Contributions, issues, and feature requests are welcome!
+---
 
-1.  Fork the Project
-2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the Branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
-
-**Prasom Jain** - [GitHub](https://github.com/prasomjain)
+**Prasom Jain** — [GitHub](https://github.com/prasomjain) · [LinkedIn](https://www.linkedin.com/in/prasom-jain-751682229/)
